@@ -63,7 +63,7 @@ def add_similar_posts(generator):
 
         article.similar_posts = [generator.articles[idx] for idx, _ in selected]
         article.similar_scores = [score for _, score in selected]
-        article.similar = [(generator.articles[idx], score) for idx, score in selected]
+        article.similars = [(generator.articles[idx], "%.3f" % score) for idx, score in selected]
 
         logger.debug('{article}: similar_posts scores: {scores}'.format(
             article=os.path.basename(article.source_path) if hasattr(article, 'source_path') else i,
